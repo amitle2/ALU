@@ -10,15 +10,15 @@ module FourBitAddSub_tb();
   
   initial begin 
     #100  A=4'd3; B=4'd4; Op=0;
-    #100  A=4'd3; B=4'd4; Op=1;
+    #100  Op=1;
     #100  A=4'd0; B=4'd5; Op=0;
-    #100  A=4'd0; B=4'd5; Op=1;
+    #100  Op=1;
     #100  A=4'd9; B=4'd2; Op=0;
-    #100  A=4'd9; B=4'd2; Op=1;
+    #100  Op=1;
     #100  A=4'd10; B=4'd10; Op=0;
-    #100  A=4'd10; B=4'd10; Op=1;
+    #100  Op=1;
     #100  A=4'd15; B=4'd15; Op=0;
-    #100  A=4'd15; B=4'd15; Op=1;
+    #100  Op=1;
     #100  $stop;
   end
 endmodule
