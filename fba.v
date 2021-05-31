@@ -1,9 +1,9 @@
-`timescale 1ns/100ps
+  `timescale 1ns/100ps
 
 module FourBitAddSub(S, C, V, A, B, Op);
    input [3:0] 	A;
    input [3:0] 	B;
-   input 	Op;  // 0 = A-B
+   input 	Op;  // 0 = A-B ; 1 = A-B
    output [3:0] S;   //Result
    output 	C;   //carry bit
    output 	V;   //overflow bit
@@ -26,4 +26,3 @@ module FourBitAddSub(S, C, V, A, B, Op);
    full_adder fa3(S[3], C3, A[3], xor3, C2);
 endmodule
 
-	
