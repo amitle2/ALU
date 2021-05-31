@@ -1,3 +1,4 @@
+`timescale 100ps/100ps
 
 module mux2_1 (s,i,o);
  input s;
