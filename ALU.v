@@ -13,7 +13,7 @@ input [3:0]b;
 input s0;
 input s1;
 output [3:0]c;
-output carry; ////good untill 9 line
+output carry;
 
 
 endmodule
