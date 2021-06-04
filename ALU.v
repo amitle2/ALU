@@ -1,4 +1,4 @@
-`timescale 100ps/100ps
+`timescale 1ns/100ps
 
 ///  4bit alu
 ///  a[4:0] b[4:0]
@@ -7,13 +7,23 @@
 ///  10 a+b
 ///  11 a-b
 
-module alu_4bit (a, b, s0, s1, c, carry);
-input [3:0]a;
-input [3:0]b;
-input s0;
-input s1;
-output [3:0]c;
-output carry;
+module Alu(A, B,Op0, Op1, C,V);
 
+ input [3:0] A,B;
+ input Op0, Op1;
+ output [3:0] C;
+ output V;
+
+ wire [3:0] i, i1, i2;
+ wire M,Cout;
+
+ assign i1 = ~(A & B);
+ assign i2 = ~(A | B);
+ assign M = Op1;
+
+ FourBitAddSub u1(A, B, M, i, Cout,V);
+ mux u2(i1,i2,i,i,Op0,Op1,C);
 
 endmodule
+
+
