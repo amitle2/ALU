@@ -3,9 +3,9 @@
 ///  4bit alu
 ///  a[4:0] b[4:0]
 ///  00 A(nand)B
-///  01 A(nor)B
-///  10 a+b
-///  11 a-b
+///  01 A-B
+///  10 A(nor)B
+///  11 A+B
 
 module Alu(A, B,Op0, Op1, C,V);
 
