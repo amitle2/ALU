@@ -1,0 +1,48 @@
+`timescale 1ns/100ps
+
+module alu_tb;
+
+// Inputs
+
+ reg [3:0] A;
+ reg [3:0] B;
+ reg Op0;
+ reg Op1;
+
+// Outputs
+
+ wire [3:0] C;
+ wire V;
+
+// Instantiate the Unit Under Test (UUT)
+
+ Alu uut (
+ .A(A),
+ .B(B),
+ .Op0(Op0), 
+ .Op1(Op1),
+ .C(C),
+ .V(V)
+ );
+
+ initial begin
+  Op0 = 0; Op1 = 0; A = 4'b0010; B = 4'b0001;
+  #50;
+  Op0 = 0; Op1 = 1;
+  #50;
+  Op0 = 1; Op1 = 0;
+  #50;
+  Op0 = 1; Op1 = 1;
+  #50;
+  Op0 = 0; Op1 = 0; A = 4'b1010; B = 4'b0011;
+  #50;
+  Op0 = 0; Op1 = 1;
+  #50;
+  Op0 = 1; Op1 = 0;
+  #50;
+  Op0 = 1; Op1 = 1;
+  #50;
+
+ end
+
+endmodule
