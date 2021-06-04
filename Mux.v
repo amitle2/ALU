@@ -1,25 +1,21 @@
-`timescale 100ps/100ps
+`timescale 1ns/100ps
 
-module mux2_1 (s,i,o);
- input s;
- input [1:0]i;
- output o;
- assign o = s ? i[1] : i[0];
-endmodule
+module mux(i0,i1,i2,i3,s1,s0,F);
 
-module mux4_1 (s,i,o);
- input [1:0]s;
- input [3:0]i;
- output  reg o;
+ input [3:0] i0,i1,i2,i3;
+ input s1,s0;
+ output reg [3:0]F;
 
- always@(s,i)
-   begin
-    case (s)
-     2'b00 : o = i[0];
-     2'b01 : o = i[1];
-     2'b10 : o = i[2];
-     2'b11 : o = i[3];
-     default : o = 0;
-    endcase
-   end
+ always@(i0 or i1 or i2 or i3 or s1 or s0)
+  case({s1,s0})
+  2'b00:
+ F=i0;
+  2'b01:
+ F=i1;
+  2'b10:
+ F=i2;
+  2'b11:
+ F=i3;
+  endcase
+
 endmodule
